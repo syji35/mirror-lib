@@ -2,8 +2,8 @@
 # .github/workflows/mirror.yml
 name: Mirror
 on:
-#   schedule:
-#     - cron: "36 */6 * * *"
+  schedule:
+    - cron: "0 17 * * *"
   workflow_dispatch:
 
     
