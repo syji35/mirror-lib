@@ -5,15 +5,21 @@ on:
 #   schedule:
 #     - cron: "36 */6 * * *"
   workflow_dispatch:
-  repository_dispatch:
-    types: [manual-trigger]
 
     
 jobs:
-  mirror1:
+  mirror_pastell:
     runs-on: ubuntu-latest
     steps:
       - run: git clone --bare https://gitlab.adullact.net/Libriciel/pastell/pastell.git .
       - run: git push --mirror "https://x:$GITHUB_TOKEN@github.com/syji35/pastell.git"
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
+          
+  mirror_parapheur:
+    runs-on: ubuntu-latest
+    steps:
+      - run: git clone --bare https://gitlab.adullact.net/Libriciel/i-Parapheur/iparapheur5/ip-compose.git .
+      - run: git push --mirror "https://x:$GITHUB_TOKEN@github.com/syji35/parapehru-v5.git"
         env:
           GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
