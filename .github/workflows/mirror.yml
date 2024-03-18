@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: git clone --bare https://gitlab.adullact.net/Libriciel/pastell/pastell.git .
-      - run: git push --mirror "https://x:$GITHUB_TOKEN@github.com/syji35/pastell.git"
+      - run: git push --mirror "https://x:$GITHUB_TOKEN@github.com/megalis-bretagne/pastell.git"
         env:
           GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
           
@@ -23,3 +23,13 @@ jobs:
       - run: git push --mirror "https://x:$GITHUB_TOKEN@github.com/megalis-bretagne/parapheur-v5.git"
         env:
           GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
+
+
+  mirror_idelibre:
+    runs-on: ubuntu-latest
+    steps:
+      - run: git clone --bare https://gitlab.adullact.net/Libriciel/idelibre/idelibre.git .
+      - run: git push --mirror "https://x:$GITHUB_TOKEN@github.com/megalis-bretagne/idelibre.git"
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
+          
