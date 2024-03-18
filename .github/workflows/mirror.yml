@@ -1,0 +1,18 @@
+# octocat/.github [another third repository]
+# .github/workflows/mirror.yml
+name: Mirror
+on:
+#   schedule:
+#     - cron: "36 */6 * * *"
+  repository_dispatch:
+    types: [manual-trigger]
+
+    
+jobs:
+  mirror1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: git clone --bare https://gitlab.adullact.net/Libriciel/pastell/pastell.git .
+      - run: git push --mirror "https://x:$GITHUB_TOKEN@github.com/octocat/my-project.git"
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
