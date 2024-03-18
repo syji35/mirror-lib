@@ -4,6 +4,7 @@ name: Mirror
 on:
 #   schedule:
 #     - cron: "36 */6 * * *"
+  workflow_dispatch:
   repository_dispatch:
     types: [manual-trigger]
 
